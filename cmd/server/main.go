@@ -55,9 +55,12 @@ func main() {
 
 	// HTTP reverse proxy
 	log.Println("Starting HTTP server on https://exposelocal.dev:8080")
-	if err := http.ListenAndServeTLS(":8080", certFile, keyFile, r); err != nil {
+	if err := http.ListenAndServe(":8080", r); err != nil {
 		log.Fatal("HTTP server error:", err)
 	}
+	// if err := http.ListenAndServeTLS(":8080", certFile, keyFile, r); err != nil {
+	// 	log.Fatal("HTTP server error:", err)
+	// }
 }
 
 // ✅ **Handles WebSocket Connections (Improved)**
