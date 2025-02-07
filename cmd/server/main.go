@@ -42,8 +42,8 @@ func main() {
 	r.HandleFunc("/tunnel", handleTunnel).Methods("GET")
 	r.PathPrefix("/").HandlerFunc(handleHTTP)
 
-	certFile := "test.exposelocal.dev.pem"
-	keyFile := "test.exposelocal.dev-key.pem"
+	// certFile := "test.exposelocal.dev.pem"
+	// keyFile := "test.exposelocal.dev-key.pem"
 
 	// WebSocket server
 	go func() {
