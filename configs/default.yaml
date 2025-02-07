@@ -1,0 +1,8 @@
+server:
+  port: 8080
+  tls:
+    enabled: false
+    cert: "./certs/cert.pem"
+    key: "./certs/key.pem"
+auth:
+  api_key: "your_default_key"
