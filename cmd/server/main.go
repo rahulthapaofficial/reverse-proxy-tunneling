@@ -33,7 +33,7 @@ type RegistrationRequest struct {
 
 func main() {
 	// Default tunnel (for testing)
-	tunnels["test"], _ = url.Parse("http://localhost:80")
+	tunnels["test"], _ = url.Parse("http://192.168.1.111:80")
 
 	r := mux.NewRouter()
 
