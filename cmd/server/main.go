@@ -48,9 +48,12 @@ func main() {
 	// WebSocket server
 	go func() {
 		log.Println("Starting WebSocket server on https://exposelocal.dev:8081")
-		if err := http.ListenAndServeTLS(":8081", certFile, keyFile, r); err != nil {
+		if err := http.ListenAndServe(":8081", r); err != nil {
 			log.Fatal("WebSocket server error:", err)
 		}
+		// if err := http.ListenAndServeTLS(":8081", certFile, keyFile, r); err != nil {
+		// 	log.Fatal("WebSocket server error:", err)
+		// }
 	}()
 
 	// HTTP reverse proxy
