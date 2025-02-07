@@ -42,8 +42,8 @@ func main() {
 	r.HandleFunc("/tunnel", handleTunnel).Methods("GET")
 	r.PathPrefix("/").HandlerFunc(handleHTTP)
 
-	// certFile := "test.exposelocal.dev.pem"
-	// keyFile := "test.exposelocal.dev-key.pem"
+	// certFile := "exposelocal.dev.pem"
+	// keyFile := "exposelocal.dev-key.pem"
 
 	// WebSocket server
 	go func() {
@@ -141,7 +141,7 @@ func handleTunnel(w http.ResponseWriter, r *http.Request) {
 func handleHTTP(w http.ResponseWriter, r *http.Request) {
 	host := strings.Split(r.Host, ".")[0] // Extract subdomain
 	tunnelsMu.RLock()
-	target, exists := tunnels[host]
+	target, exists := tunnels["test"]
 	tunnelsMu.RUnlock()
 
 	if !exists {

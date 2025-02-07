@@ -22,7 +22,7 @@ func main() {
 	// Command-line flags
 	subdomainFlag := flag.String("subdomain", "test", "Subdomain for the tunnel")
 	targetPort := flag.String("port", "80", "Local port to expose (e.g., Apache on 80)")
-	proxyURL := flag.String("proxy", "wss://exposelocal.dev:8081/tunnel", "Proxy WebSocket URL")
+	proxyURL := flag.String("proxy", "wss://reverse-proxy-tunneling.onrender.com/tunnel", "Proxy WebSocket URL")
 	apiKey := flag.String("apikey", "test123", "Authentication key")
 	flag.Parse()
 
@@ -31,7 +31,8 @@ func main() {
 
 	// Register subdomain with proxy
 	for {
-		registerURL := "https://exposelocal.dev:8080/register"
+		// registerURL := "https://exposelocal.dev:8080/register"
+		registerURL := "https://reverse-proxy-tunneling.onrender.com/register"
 		registerData := map[string]string{
 			"subdomain":   subdomain,
 			"target_port": *targetPort,
